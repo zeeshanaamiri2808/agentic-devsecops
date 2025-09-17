@@ -1,0 +1,25 @@
+name: AI Security Agent Health Check
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  health_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Ollama Health
+        run: |
+          response=$(curl -s -w "%{http_code}" ${{ secrets.OLLAMA_HOST || 'http://localhost:11434' }}/api/tags)
+          if [ "$response" != "200" ]; then
+            echo "Ollama health check failed"
+            exit 1
+          fi
+          echo "Ollama is healthy"
+      
+      - name: Test Model Response
+        run: |
+          curl -X POST ${{ secrets.OLLAMA_HOST || 'http://localhost:11434' }}/api/generate \
+            -H "Content-Type: application/json" \
+            -d '{"model": "mistral:7b-instruct-v0.2-q4_0", "prompt": "Test", "stream": false}' \
+            --max-time 30

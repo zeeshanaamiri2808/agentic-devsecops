@@ -1,0 +1,37 @@
+{
+  "business_criticality": "high",
+  "compliance_requirements": ["SOC2", "OWASP", "PCI-DSS"],
+  "attack_surface": [
+    "web_application",
+    "api_endpoints",
+    "database_layer"
+  ],
+  "environment": "production",
+  "data_classification": "confidential",
+  "risk_tolerance": "low",
+  "remediation_sla": {
+    "critical": "24_hours",
+    "high": "72_hours", 
+    "medium": "7_days",
+    "low": "30_days"
+  },
+  "critical_assets": [
+    "user_authentication",
+    "user_database",
+    "payment_processing",
+    "admin_panel"
+  ],
+  "previous_incidents": [
+    {
+      "type": "sql_injection_attempt",
+      "date": "2024-01-01",
+      "impact": "blocked_by_waf"
+    }
+  ],
+  "business_context": {
+    "industry": "technology",
+    "user_base_size": "10000+",
+    "geographic_regions": ["US", "EU"],
+    "peak_traffic_hours": "09:00-17:00 EST"
+  }
+}

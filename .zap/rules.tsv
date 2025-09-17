@@ -1,0 +1,11 @@
+# ZAP Scanning Rules Configuration
+# Format: ID	ACTION	DESCRIPTION
+10021	WARN	X-Content-Type-Options Header Missing
+10020	WARN	X-Frame-Options Header Missing  
+10016	WARN	Web Browser XSS Protection Not Enabled
+10015	WARN	Incomplete or No Cache-control and Pragma HTTP Header Set
+90022	INFO	Application Error Disclosure
+10098	INFO	Cross-Domain Misconfiguration
+10055	INFO	CSP Scanner: Wildcard Directive
+10063	INFO	Permissions Policy Header Not Set
+10109	INFO	Modern Web Application
