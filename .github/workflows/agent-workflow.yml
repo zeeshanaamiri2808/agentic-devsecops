@@ -1,9 +1,9 @@
 name: Enhanced Security Pipeline with Self-Hosted Runner
 on: 
   push:
-    branches: [master, main, develop]
+    branches: [main, master, develop]
   pull_request:
-    branches: [master, main]
+    branches: [main, master]
 
 permissions:
   contents: read
